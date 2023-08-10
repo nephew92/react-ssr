@@ -1,0 +1,84 @@
+env:
+  amd: true
+  node: true
+  browser: true
+  es2021: true
+settings:
+  react:
+    version: detect
+    flowVersion: "0.53"
+extends:
+  - eslint:recommended
+  - plugin:react/recommended
+  - plugin:import/recommended
+  - plugin:react-hooks/recommended
+  - google
+parser: "@babel/eslint-parser"
+parserOptions:
+  requireConfigFile: false
+  ecmaFeatures:
+    jsx: true
+  ecmaVersion: latest
+  sourceType: module
+plugins: [react-hooks, react, import]
+rules:
+  operator-linebreak: [error, none]
+  linebreak-style: off
+  indent: off
+  require-jsdoc: off
+  arrow-body-style: [error, as-needed]
+  max-len: off
+  implicit-arrow-linebreak: [error, beside]
+  camelcase: off
+  arrow-parens: [error, as-needed]
+  consistent-return: error
+  object-curly-spacing: [2, always]
+  no-lonely-if: error
+  no-loop-func: error
+  no-undef: error
+  no-extra-parens:
+    - error
+    - all
+    - ignoreJSX: none
+      nestedBinaryExpressions: false
+  quotes: off
+  semi: off
+  eqeqeq: [error, smart]
+  prefer-arrow-callback: error
+  prefer-destructuring: error
+  prefer-object-spread: error
+  prefer-template: error
+  quote-props: [warn, as-needed]
+  react/prop-types: off
+  react/display-name: off
+  react/react-in-jsx-scope: off
+  react-hooks/rules-of-hooks: error
+  react-hooks/exhaustive-deps: error
+  react/jsx-uses-react: off
+  react/jsx-curly-spacing: error
+  react/jsx-equals-spacing: error
+  react/jsx-props-no-multi-spaces: error
+  react/jsx-space-before-closing: error
+  react/jsx-fragments: error
+  react/no-unescaped-entities: off
+  no-multiple-empty-lines:
+    - error
+    - max: 1
+  import/order:
+    - error
+    - alphabetize:
+        order: asc
+      newlines-between: always
+      pathGroupsExcludedImportTypes: [react, prop-types]
+      pathGroups:
+        - pattern: "@(react|prop-types|react*)"
+          group: builtin
+          position: before
+      groups:
+        - builtin
+        - external
+        - internal
+        - parent
+        - sibling
+        - index
+        - type
