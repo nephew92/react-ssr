@@ -7,6 +7,12 @@ settings:
   react:
     version: detect
     flowVersion: "0.53"
+  import/resolver:
+    webpack:
+      config: "./webpack.config.js"
+      env:
+        NODE_ENV: "dev"
+        production: false
 extends:
   - eslint:recommended
   - plugin:react/recommended

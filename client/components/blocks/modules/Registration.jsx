@@ -1,5 +1,9 @@
+import { FormProvider } from "../../../../client/components/hooks/use-form";
+
 export default function Registration({ children }) {
   return <div className="registration">
-    {children}
+    <FormProvider>
+      {children}
+    </FormProvider>
   </div>
 }

@@ -1,30 +1,30 @@
 import { Suspense } from "react"
 
-import Loading from "./Loading.jsx"
-import { BLOCKS, LAZY_MODULE_BLOCKS } from "./blocks/index.jsx"
+import Loading from "./Loading"
+import { BLOCKS, LAZY_MODULE_BLOCKS } from "./blocks/index"
 
-export default function Block({ blocks }) {
+export default function BlocksComponent({ blocks }) {
   return <>
     {blocks.map((block, idx) => {
       if (typeof block === 'string') {
         return block
       }
-      const { type, blocks, attributes } = block
-      const LazyType = LAZY_MODULE_BLOCKS[type]
+      const { component, children, props } = block
+      const LazyModuleComponent = LAZY_MODULE_BLOCKS[component]
 
-      if (LazyType) {
+      if (LazyModuleComponent) {
         return <Suspense key={idx} fallback={<Loading />}>
-          <LazyType {...attributes}>
-            {blocks && <Block blocks={blocks} />}
-          </LazyType>
+          <LazyModuleComponent {...props}>
+            {children && <BlocksComponent blocks={children} />}
+          </LazyModuleComponent>
         </Suspense>
       }
 
-      const Type = BLOCKS[type]
-      if (Type) {
-        return <Type key={idx} {...attributes}>
-          {blocks && <Block blocks={blocks} />}
-        </Type>
+      const Component = BLOCKS[component]
+      if (Component) {
+        return <Component key={idx} {...props}>
+          {children && <BlocksComponent blocks={children} />}
+        </Component>
       }
 
       return 'Block not found'

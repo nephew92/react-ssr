@@ -1,8 +1,8 @@
-import Block from "./components/Block.jsx";
-import HTML from "./components/Html.jsx";
+import BlocksComponent from "./components/Block";
+import HTML from "./components/Html";
 
 export function App({ blocks }) {
   return <HTML>
-    <Block blocks={blocks} />
+    <BlocksComponent blocks={blocks} />
   </HTML>
 }

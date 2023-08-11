@@ -1,10 +1,13 @@
+import { createElement } from "react";
+
 import { renderToPipeableStream } from "react-dom/server";
 
-import { App } from "../client/App.jsx";
-import blockRegistration from "../mocks/block-registration";
+import { App } from "../client/App";
+import blocks from "../mocks/block-registration";
 
 export const render = (request, response, next) => {
-  const stream = renderToPipeableStream(<App blocks={blockRegistration} />, {
+  const root = createElement(App, { blocks })
+  const stream = renderToPipeableStream(root, {
     bootstrapScripts: ["bundle.js"],
     onShellReady() {
       response.setHeader("content-type", "text/html");

@@ -1,11 +1,15 @@
 const path = require("path");
 
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const nodeExternals = require('webpack-node-externals');
 
 const modules = {
   rules: [
     {
       test: /\.(js|jsx)$/i,
+      exclude: /node_modules/,
       loader: "babel-loader",
     },
     {
@@ -43,6 +47,9 @@ const plugins = [
 
 const clientConfig = {
   target: "web",
+  resolve: {
+    extensions: ['.jsx', '.js', '.json'],
+  },
   entry: "./client/index.jsx",
   output: {
     filename: "bundle.js",
@@ -51,10 +58,24 @@ const clientConfig = {
   },
   module: modules,
   plugins,
+  performance: false,
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin(),
+      new CssMinimizerPlugin(),
+    ],
+  },
 };
 
 const serverConfig = {
   target: "node",
+  resolve: {
+    extensions: ['.jsx', '.js', '.json'],
+  },
+  externals: nodeExternals({
+    allowlist: [/\.(?!(?:jsx?|json)$).{1,5}$/i],
+  }),
   entry: "./src/index.js",
   output: {
     filename: "bundle.js",
