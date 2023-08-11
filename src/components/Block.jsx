@@ -1,7 +1,8 @@
 import { Suspense } from "react"
 
+import { BLOCKS, LAZY_MODULE_BLOCKS } from "@Blocks"
+
 import Loading from "./Loading"
-import { BLOCKS, LAZY_MODULE_BLOCKS } from "./blocks/index"
 
 export default function BlocksComponent({ blocks }) {
   return <>

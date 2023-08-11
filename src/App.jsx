@@ -1,5 +1,5 @@
-import BlocksComponent from "./components/Block";
-import HTML from "./components/Html";
+import BlocksComponent from "@Components/Block";
+import HTML from "@Components/HTML";
 
 export function App({ blocks }) {
   return <HTML>

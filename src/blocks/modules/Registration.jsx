@@ -1,4 +1,4 @@
-import { FormProvider } from "../../../../client/components/hooks/use-form";
+import { FormProvider } from "@Hooks/use-form";
 
 export default function Registration({ children }) {
   return <div className="registration">

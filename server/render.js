@@ -2,7 +2,7 @@ import { createElement } from "react";
 
 import { renderToPipeableStream } from "react-dom/server";
 
-import { App } from "../client/App";
+import { App } from "../src/App";
 import blocks from "../themes/ctc";
 
 export const render = (request, response, next) => {

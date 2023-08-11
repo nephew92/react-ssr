@@ -8,6 +8,12 @@ module.exports = env => {
    */
   const config = {
     resolve: {
+      alias: {
+        "@Components": path.resolve(__dirname, '../src/components'),
+        "@Blocks": path.resolve(__dirname, '../src/blocks'),
+        "@Hooks": path.resolve(__dirname, '../src/hooks'),
+        "@Utils": path.resolve(__dirname, '../src/utils'),
+      },
       extensions: ['.jsx', '.js', '.json'],
     },
     module: {

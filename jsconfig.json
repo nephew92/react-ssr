@@ -6,5 +6,12 @@
     "allowSyntheticDefaultImports": false,
     "baseUrl": "./",
     "jsx": "react",
+    "paths": {
+      "@Components/*": ["src/components/*"],
+      "@Blocks": ["src/blocks"],
+      "@Blocks/*": ["src/blocks/*"],
+      "@Hooks/*": ["src/hooks/*"],
+      "@Utils/*": ["src/utils/*"]
+    }
   }
 }

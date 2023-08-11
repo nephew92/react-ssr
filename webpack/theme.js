@@ -12,10 +12,10 @@ module.exports = env => {
    */
   const config = {
     target: "web",
-    entry: "./client/index.jsx",
+    entry: "./src/index.jsx",
     output: {
       filename: "bundle.js",
-      path: path.resolve(__dirname, "build/client"),
+      path: path.resolve(__dirname, "../build/client"),
       clean: true,
     },
     performance: false,
