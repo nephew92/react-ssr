@@ -1,6 +1,6 @@
 import { hydrateRoot } from "react-dom/client";
 
-import blockRegistration from "../mocks/block-registration.js";
+import blockRegistration from "../themes/ctc";
 
 import { App } from "./App";
 

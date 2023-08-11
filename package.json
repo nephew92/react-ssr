@@ -4,10 +4,10 @@
   "description": "Simple SSR example using React",
   "main": "index.js",
   "scripts": {
-    "start": "yarn build:dev && nodemon -e js,jsx,json build/server/bundle.js",
-    "build": "webpack --mode=production --node-env=production",
-    "build:dev": "webpack --mode=development",
-    "build:prod": "webpack --mode=production --node-env=production"
+    "start:dev": "yarn build:theme && yarn build:server && node build/server/bundle.js",
+    "build": "webpack --mode=$NODE_ENV --node-env=$NODE_ENV --env $NODE_ENV",
+    "build:theme": "yarn build --config webpack/theme.js",
+    "build:server": "yarn build --config webpack/server.js"
   },
   "repository": {
     "type": "git",
@@ -31,7 +31,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "reactstrap": "^9.2.0",
-    "terser-webpack-plugin": "^5.3.9"
+    "terser-webpack-plugin": "^5.3.9",
+    "webpack-merge": "^5.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
