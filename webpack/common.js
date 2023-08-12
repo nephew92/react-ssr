@@ -1,12 +1,20 @@
 const path = require("path");
 
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = env => {
   /**
    * @type {import("webpack").Configuration}
    */
   const config = {
+    devtool: false,
+    mode: "production",
+    performance: false,
+    output: {
+      clean: true,
+    },
     resolve: {
       alias: {
         "@Components": path.resolve(__dirname, '../src/components'),
@@ -49,7 +57,20 @@ module.exports = env => {
         },
       ],
     },
-
+    optimization: {
+      minimize: true,
+      minimizer: [
+        new TerserPlugin({
+          extractComments: false,
+          terserOptions: {
+            format: {
+              comments: false,
+            },
+          },
+        }),
+        new CssMinimizerPlugin(),
+      ],
+    },
     plugins: [
       new MiniCssExtractPlugin({
         filename: 'main.css',
