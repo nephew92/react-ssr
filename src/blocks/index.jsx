@@ -11,11 +11,6 @@ import Row from "@Blocks/layout/Row";
 const Registration = lazy(() => import("@Blocks/modules/Registration"))
 const Root = lazy(() => import("@Blocks/modules/Root"))
 
-export const LAZY_MODULE_BLOCKS = {
-  Registration,
-  Root,
-}
-
 export const BLOCKS = {
   Header1,
   Flex,
@@ -24,4 +19,6 @@ export const BLOCKS = {
   Col,
   ListGroup,
   ListGroupItem,
+  Registration,
+  Root,
 }

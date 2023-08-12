@@ -1,8 +1,4 @@
-import { Suspense } from "react"
-
-import { BLOCKS, LAZY_MODULE_BLOCKS } from "@Blocks"
-
-import Loading from "./Loading"
+import { BLOCKS } from "@Blocks"
 
 export default function BlocksComponent({ blocks }) {
   return <>
@@ -11,15 +7,6 @@ export default function BlocksComponent({ blocks }) {
         return block
       }
       const { component, children, props } = block
-      const LazyModuleComponent = LAZY_MODULE_BLOCKS[component]
-
-      if (LazyModuleComponent) {
-        return <Suspense key={idx} fallback={<Loading />}>
-          <LazyModuleComponent {...props}>
-            {children && <BlocksComponent blocks={children} />}
-          </LazyModuleComponent>
-        </Suspense>
-      }
 
       const Component = BLOCKS[component]
       if (Component) {
