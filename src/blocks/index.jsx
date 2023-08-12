@@ -1,4 +1,4 @@
-import { lazy } from "react";
+import lazy from "@Utils/lazy";
 
 const Header1 = lazy(() => import("@Blocks/content/Header1"));
 const ListGroup = lazy(() => import("@Blocks/content/ListGroup"));
