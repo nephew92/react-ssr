@@ -7,6 +7,7 @@
     "baseUrl": "./",
     "jsx": "react",
     "paths": {
+      "@Server/*": ["server/*"],
       "@Components/*": ["src/components/*"],
       "@Blocks": ["src/blocks"],
       "@Blocks/*": ["src/blocks/*"],

@@ -1,12 +1,12 @@
-const path = require("path");
+import { resolve } from "node:path";
 
-const express = require("express");
+import express from "express";
 
-const { render } = require("./render");
+import { render } from "./render";
 
 const app = express();
 
-app.use(express.static(path.resolve(__dirname, "../client")));
+app.use(express.static(resolve(__dirname, "../client")));
 
 app.get("/", render)
 

@@ -32,12 +32,12 @@ rules:
   linebreak-style: off
   indent: off
   require-jsdoc: off
+  valid-jsdoc: off
   arrow-body-style: [error, as-needed]
   max-len: off
   implicit-arrow-linebreak: [error, beside]
   camelcase: off
   arrow-parens: [error, as-needed]
-  consistent-return: error
   object-curly-spacing: [2, always]
   no-lonely-if: error
   no-loop-func: error

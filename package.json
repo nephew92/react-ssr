@@ -7,8 +7,10 @@
     "build": "webpack --mode=$NODE_ENV --node-env=$NODE_ENV --env $NODE_ENV",
     "build:theme": "yarn build --config webpack/theme.js",
     "build:server": "yarn build --config webpack/server.js",
-    "build:start": "yarn build:theme && yarn build:server && node build/server/bundle.js",
-    "start": "nodemon -x yarn build:start"
+    "start:server": "node build/server/bundle.js",
+    "dev": "yarn build:theme && yarn build:server && yarn start:server",
+    "dev:server": "yarn build:server && yarn start:server",
+    "watch": "nodemon --ignore build/ -x yarn"
   },
   "repository": {
     "type": "git",

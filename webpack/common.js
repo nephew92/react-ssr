@@ -1,4 +1,4 @@
-const path = require("path");
+const path = require("node:path");
 
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -17,6 +17,7 @@ module.exports = env => {
     },
     resolve: {
       alias: {
+        "@Server": path.resolve(__dirname, '../server'),
         "@Components": path.resolve(__dirname, '../src/components'),
         "@Blocks": path.resolve(__dirname, '../src/blocks'),
         "@Hooks": path.resolve(__dirname, '../src/hooks'),
