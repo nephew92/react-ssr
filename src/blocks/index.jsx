@@ -1,12 +1,12 @@
 import { lazy } from "react";
 
-import Header1 from "@Blocks/content/Header1";
-import ListGroup from "@Blocks/content/ListGroup";
-import ListGroupItem from "@Blocks/content/ListGroupItem";
-import Col from "@Blocks/layout/Col";
-import Container from "@Blocks/layout/Container";
-import Flex from "@Blocks/layout/Flex";
-import Row from "@Blocks/layout/Row";
+const Header1 = lazy(() => import("@Blocks/content/Header1"));
+const ListGroup = lazy(() => import("@Blocks/content/ListGroup"));
+const ListGroupItem = lazy(() => import("@Blocks/content/ListGroupItem"));
+const Col = lazy(() => import("@Blocks/layout/Col"));
+const Container = lazy(() => import("@Blocks/layout/Container"));
+const Flex = lazy(() => import("@Blocks/layout/Flex"));
+const Row = lazy(() => import("@Blocks/layout/Row"));
 
 const Registration = lazy(() => import("@Blocks/modules/Registration"))
 const Root = lazy(() => import("@Blocks/modules/Root"))
