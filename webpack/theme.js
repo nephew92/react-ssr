@@ -4,6 +4,8 @@ const { merge } = require("webpack-merge");
 
 const common = require('./common');
 
+const { THEME } = process.env
+
 module.exports = env => {
   /**
    * @type {import("webpack").Configuration}
@@ -12,8 +14,8 @@ module.exports = env => {
     target: "web",
     entry: "./src/index.jsx",
     output: {
-      filename: "bundle.js",
-      path: path.resolve(__dirname, "../build/client"),
+      filename: "js/bundle.js",
+      path: path.resolve(__dirname, `../build/themes/${THEME}/static`),
     },
   }
   return merge(common(env), config)
