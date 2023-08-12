@@ -1,5 +1,6 @@
 import BlocksComponent from "@Components/Block";
 import HTML from "@Components/Html";
+import "./sass/bootstrap.scss"
 
 export function App({ blocks }) {
   return <HTML>
