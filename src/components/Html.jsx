@@ -1,5 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 export default function HTML({ children }) {
   return <html lang="en">
     <head>
