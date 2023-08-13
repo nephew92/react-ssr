@@ -47,14 +47,7 @@ module.exports = env => {
             MiniCssExtractPlugin.loader,
             'css-loader',
             'postcss-loader',
-            {
-              loader: "sass-loader",
-              options: {
-                sassOptions: {
-                  includePaths: [path.resolve(__dirname, "node_modules/bootstrap/scss")],
-                },
-              },
-            },
+            "sass-loader",
           ],
         },
       ],

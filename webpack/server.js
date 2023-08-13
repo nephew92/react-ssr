@@ -11,9 +11,10 @@ module.exports = env => {
    */
   const config = {
     target: "node",
-    externals: nodeExternals({
+    externalsPresets: { node: true },
+    externals: [nodeExternals({
       allowlist: [/\.(?!(?:jsx?|json)$).{1,5}$/i],
-    }),
+    })],
     entry: "./server/index.js",
     output: {
       filename: "bundle.js",

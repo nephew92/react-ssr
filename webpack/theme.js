@@ -14,8 +14,20 @@ module.exports = env => {
     target: "web",
     entry: "./src/index.jsx",
     output: {
-      filename: "js/bundle.js",
+      filename: "js/[name].bundle.js",
       path: path.resolve(__dirname, `../build/themes/${THEME}/static`),
+    },
+    optimization: {
+      runtimeChunk: 'single',
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+          },
+        },
+      },
     },
   }
   return merge(common(env), config)

@@ -11,7 +11,7 @@ export const render = handler((req, res) => {
     throw new ServerError('site not found', HTTP.NOT_FOUND)
   }
   const stream = renderToPipeableStream(<App blocks={site.blocks} />, {
-    bootstrapScripts: ["js/bundle.js"],
+    bootstrapScripts: ["js/vendors.bundle.js", "js/runtime.bundle.js", "js/main.bundle.js"],
     onShellReady() {
       res.setHeader("content-type", "text/html");
       stream.pipe(res);
