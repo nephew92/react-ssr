@@ -17,6 +17,7 @@ module.exports = env => {
     },
     resolve: {
       alias: {
+        "@Build": path.resolve(__dirname, '../build'),
         "@Server": path.resolve(__dirname, '../server'),
         "@Components": path.resolve(__dirname, '../src/components'),
         "@Blocks": path.resolve(__dirname, '../src/blocks'),

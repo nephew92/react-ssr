@@ -1,17 +1,20 @@
 import { renderToPipeableStream } from "react-dom/server";
 
 import { App } from "../src/App";
-import blocks from "../themes/ctc";
 
 import { ServerError, handler, HTTP } from "./utils";
+import themeManager from "./utils/theme-manager";
 
 export const render = handler((req, res) => {
-  const stream = renderToPipeableStream(<App blocks={blocks} />, {
+  const site = themeManager.get(req.hostname) || themeManager.create(req.hostname)
+  if (!site) {
+    throw new ServerError('site not found', HTTP.NOT_FOUND)
+  }
+  const stream = renderToPipeableStream(<App blocks={site.blocks} />, {
     bootstrapScripts: ["js/bundle.js"],
     onShellReady() {
-      response.setHeader("content-type", "text/html");
-      response.cookie("X-THEME", "ctc");
-      stream.pipe(response);
+      res.setHeader("content-type", "text/html");
+      stream.pipe(res);
     },
   });
 })
