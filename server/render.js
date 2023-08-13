@@ -3,10 +3,9 @@ import { renderToPipeableStream } from "react-dom/server";
 import { App } from "../src/App";
 import blocks from "../themes/ctc";
 
-/**
- * @type {import("express").RequestHandler}
- */
-export const render = (request, response, next) => {
+import { ServerError, handler, HTTP } from "./utils";
+
+export const render = handler((req, res) => {
   const stream = renderToPipeableStream(<App blocks={blocks} />, {
     bootstrapScripts: ["js/bundle.js"],
     onShellReady() {
@@ -15,4 +14,4 @@ export const render = (request, response, next) => {
       stream.pipe(response);
     },
   });
-};
+})

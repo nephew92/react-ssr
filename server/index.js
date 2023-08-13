@@ -7,6 +7,7 @@ import express, { static as expressStatic } from "express";
 
 import api from "./api";
 import { render } from "./render";
+import { handler } from "./utils";
 
 const app = express();
 
@@ -20,14 +21,14 @@ app.use('/api', api)
 
 const staticMiddlewares = {}
 
-app.use((req, res, next) => {
+app.use(handler((req, res, next) => {
   const { ['X-THEME']: theme } = req.cookies
   if (theme) {
     const middlreware = staticMiddlewares[theme] = staticMiddlewares[theme] || expressStatic(resolve(__dirname, `../themes/${theme}/static`))
     return middlreware(req, res, next)
   }
   next()
-});
+}));
 
 app.get("/", render)
 

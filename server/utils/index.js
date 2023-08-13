@@ -1,7 +1,9 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 
-import { INTERNAL_SERVER_ERROR } from "http-status";
+import * as HTTP from "http-status";
+
+export { HTTP }
 
 export class ServerError extends Error {
   constructor(message, status) {
@@ -9,17 +11,25 @@ export class ServerError extends Error {
 
     Error.captureStackTrace(this, this.constructor);
 
-    this.status = status || INTERNAL_SERVER_ERROR;
+    this.status = status || HTTP.INTERNAL_SERVER_ERROR;
   }
 
   handle(res) {
-    const { message, status, stack } = this
+    const { message, status, stack, sendJson } = this
     res.status(status)
-    res.send({
-      error: true,
-      message,
-      stack: process.env.NODE_ENV === 'development' ? stack : undefined,
-    })
+    if (sendJson) {
+      res.json({
+        error: true,
+        message,
+        stack: process.env.NODE_ENV === 'development' ? stack : undefined,
+      })
+    }
+    res.send(message)
+  }
+
+  json() {
+    this.sendJson = true
+    return this
   }
 }
 
@@ -27,4 +37,20 @@ export function writeFileDirSync(relativeFilename, content) {
   const filename = resolve(__dirname, relativeFilename)
   mkdirSync(dirname(filename), { recursive: true })
   writeFileSync(filename, content)
+}
+
+/**
+ * @param {import("express").RequestHandler} requestHandler
+ */
+export function handler(requestHandler) {
+  return (req, res, next) => {
+    try {
+      requestHandler(req, res, next)
+    } catch (err) {
+      if (err instanceof ServerError) {
+        return err.handle(res)
+      }
+      next(err)
+    }
+  }
 }
