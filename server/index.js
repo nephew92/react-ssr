@@ -1,6 +1,6 @@
 import { json, urlencoded, text } from "body-parser";
-import compression from "compression";
-import express from "express";
+import * as compression from "compression";
+import * as express from "express";
 
 import controllers from "./controllers";
 
