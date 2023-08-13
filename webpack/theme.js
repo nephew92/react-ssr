@@ -5,9 +5,9 @@ const { merge } = require("webpack-merge");
 
 const common = require('./common');
 
-const { THEME } = process.env
+const { THEMES } = process.env
 
-module.exports = env => {
+module.exports = THEMES.split(',').map(THEME => env => {
   /**
    * @type {import("webpack").Configuration}
    */
@@ -37,4 +37,4 @@ module.exports = env => {
     ],
   }
   return merge(common(env), config)
-}
+})
