@@ -1,5 +1,6 @@
 const path = require("node:path");
 
+const { DefinePlugin } = require("webpack");
 const { merge } = require("webpack-merge");
 
 const common = require('./common');
@@ -29,6 +30,11 @@ module.exports = env => {
         },
       },
     },
+    plugins: [
+      new DefinePlugin({
+        'process.env.THEME': JSON.stringify(THEME),
+      }),
+    ],
   }
   return merge(common(env), config)
 }

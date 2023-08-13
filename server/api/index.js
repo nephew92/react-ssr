@@ -4,6 +4,7 @@ import { Router as expressRouter } from "express";
 import { parse as parseYml } from "yaml";
 
 import { HTTP, ServerError, handler, writeFileDirSync } from "@Server/utils";
+import { themeManager } from '@Server/utils/theme-manager';
 
 const router = expressRouter()
 
@@ -51,6 +52,7 @@ router.post('/build', handler((req, res, next) => {
 
   // run yarn build:theme
   execSync(`THEME=${theme} yarn build:theme > build/themes/${theme}/build.log.text`)
+  themeManager.getOrCreate(theme).mountApp()
   // generate tarball
 
   // upload tarball to S3
