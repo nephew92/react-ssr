@@ -9,7 +9,8 @@ const SITES = {
   'new.local.consumertestconnect.com': 'ctc',
   'new.local.shopgala.com': 'shopgala',
 }
-class Theme {
+
+export class ThemeMaganer {
   constructor(name) {
     this.name = name
     this.themeDir = resolve(`./build/themes/${this.name}`)
@@ -32,16 +33,14 @@ class Theme {
     const blocks = JSON.parse(readFileSync(`${this.themeDir}/blocks.json`, { encoding: 'utf-8' }))
     this._app = <App blocks={blocks} />
   }
-}
 
-export const themeManager = new class ThemeMaganer {
   /**
-   * @type {{[key: string]: Theme}}
+   * @type {{[key: string]: ThemeMaganer}}
    */
-  themes = {}
+  static themes = {}
 
-  create(name) {
-    const theme = new Theme(name)
+  static create(name) {
+    const theme = new this(name)
     if (theme.isDownloaded()) {
       this.themes[name] = theme
       return theme
@@ -49,44 +48,42 @@ export const themeManager = new class ThemeMaganer {
     return null
   }
 
-  get(name) {
+  static get(name) {
     return this.themes[name]
   }
 
-  getOrCreate(name) {
+  static getOrCreate(name) {
     return this.get(name) || this.create(name)
   }
 }
 
-class Site {
+export class SiteManager {
   constructor(domain, theme, { aliases = [] } = {}) {
     this.domain = domain
     this.aliases = aliases
-    this.theme = themeManager.getOrCreate(theme)
+    this.theme = ThemeMaganer.getOrCreate(theme)
   }
-}
 
-export const siteManager = new class SiteManager {
   /**
-   * @type {{[key: string]: Site}}
+   * @type {{[key: string]: SiteManager}}
    */
-  domains = {}
+  static domains = {}
 
-  create(domain) {
+  static create(domain) {
     const theme = SITES[domain]
     if (theme) {
-      const site = new Site(domain, theme)
+      const site = new this(domain, theme)
       this.domains[domain] = site
       return site
     }
     return null
   }
 
-  get(domain) {
+  static get(domain) {
     return this.domains[domain]
   }
 
-  getOrCreate(domain) {
+  static getOrCreate(domain) {
     return this.get(domain) || this.create(domain)
   }
 }

@@ -6,7 +6,7 @@ import express from "express";
 import api from "./api";
 import { render } from "./render";
 import { handler } from "./utils";
-import { siteManager } from "./utils/theme-manager";
+import { SiteManager } from "./utils/theme-manager";
 
 const app = express();
 
@@ -21,7 +21,7 @@ app.use('/api', api)
 
 app.use(handler((req, res, next) => {
   const { hostname } = req
-  const site = siteManager.get(hostname)
+  const site = SiteManager.get(hostname)
   if (site?.theme?.isDownloaded()) {
     return site.theme.static(req, res, next)
   }
