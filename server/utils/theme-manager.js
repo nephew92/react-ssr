@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 
 import { static as expressStatic } from "express";
 
-import { App } from "../../src/App";
+import { App } from "@Theme/App";
 
 const SITES = {
   'new.local.consumertestconnect.com': 'ctc',

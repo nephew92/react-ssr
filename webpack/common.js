@@ -19,10 +19,7 @@ module.exports = env => {
       alias: {
         "@Build": path.resolve(__dirname, '../build'),
         "@Server": path.resolve(__dirname, '../server'),
-        "@Components": path.resolve(__dirname, '../src/components'),
-        "@Blocks": path.resolve(__dirname, '../src/blocks'),
-        "@Hooks": path.resolve(__dirname, '../src/hooks'),
-        "@Utils": path.resolve(__dirname, '../src/utils'),
+        "@Theme": path.resolve(__dirname, '../theme'),
       },
       extensions: ['.jsx', '.js', '.json'],
     },

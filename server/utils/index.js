@@ -41,6 +41,7 @@ export function writeFileDirSync(relativeFilename, content) {
 
 /**
  * @param {import("express").RequestHandler} requestHandler
+ * @returns {import("express").RequestHandler}
  */
 export function handler(requestHandler) {
   return (req, res, next) => {

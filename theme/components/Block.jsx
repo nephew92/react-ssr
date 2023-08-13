@@ -1,4 +1,4 @@
-import { BLOCKS } from "@Blocks"
+import { BLOCKS } from "@Theme/blocks"
 
 export default function BlocksComponent({ blocks }) {
   return <>

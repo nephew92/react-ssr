@@ -9,11 +9,7 @@
     "paths": {
       "@Build/*": ["build/*"],
       "@Server/*": ["server/*"],
-      "@Components/*": ["src/components/*"],
-      "@Blocks": ["src/blocks"],
-      "@Blocks/*": ["src/blocks/*"],
-      "@Hooks/*": ["src/hooks/*"],
-      "@Utils/*": ["src/utils/*"]
+      "@Theme/*": ["theme/*"]
     }
   }
 }

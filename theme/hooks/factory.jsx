@@ -3,7 +3,7 @@ import { createContext, useCallback, useContext, useMemo, useState } from "react
 
 import { merge } from "lodash";
 
-import { internalApi } from "@Utils/httpclient";
+import { internalApi } from "@Theme/utils/httpclient";
 
 function hookBaseFactory(apiClient = internalApi) {
   return () => {
