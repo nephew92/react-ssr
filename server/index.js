@@ -1,4 +1,4 @@
-import { json, urlencoded } from "body-parser";
+import { json, urlencoded, text } from "body-parser";
 import compression from "compression";
 import cookieParser from "cookie-parser";
 import express from "express";
@@ -13,6 +13,7 @@ const app = express();
 app.use(compression());
 app.use(cookieParser('userenroll'));
 
+app.use(text());
 app.use(json({ limit: '50mb' }));
 app.use(urlencoded({ extended: true, limit: '50mb' }));
 
