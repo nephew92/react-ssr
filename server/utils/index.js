@@ -18,7 +18,7 @@ export class ServerError extends Error {
     const { message, status, stack, sendJson } = this
     res.status(status)
     if (sendJson) {
-      res.json({
+      return res.json({
         error: true,
         message,
         stack: process.env.NODE_ENV === 'development' ? stack : undefined,

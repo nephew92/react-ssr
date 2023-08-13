@@ -16,7 +16,7 @@ router.post('/build', handler((req, res, next) => {
   writeFileDirSync(`../themes/${theme}/blocks.json`, JSON.stringify(blocks))
 
   // run yarn build:theme
-  execSync(`THEME=${theme} yarn build:theme > build/themes/${theme}/log.text`)
+  execSync(`THEME=${theme} yarn build:theme > build/themes/${theme}/build.log.text`)
   // generate tarball
 
   // upload tarball to S3

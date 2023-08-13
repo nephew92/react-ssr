@@ -10,7 +10,7 @@
     "start:server": "node build/server/bundle.js",
     "dev": "yarn build:theme && yarn build:server && yarn start:server",
     "dev:server": "yarn build:server && yarn start:server",
-    "watch": "nodemon --ignore build/ -x yarn"
+    "watch": "nodemon -e js,jsx,json -i build/ -x yarn"
   },
   "repository": {
     "type": "git",
