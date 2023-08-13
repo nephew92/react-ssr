@@ -40,13 +40,13 @@ export function writeFileDirSync(relativeFilename, content) {
 }
 
 /**
- * @param {import("express").RequestHandler} requestHandler
+ * @param {Promise<import("express").RequestHandler>} requestHandler
  * @returns {import("express").RequestHandler}
  */
 export function handler(requestHandler) {
-  return (req, res, next) => {
+  return async (req, res, next) => {
     try {
-      requestHandler(req, res, next)
+      await requestHandler(req, res, next)
     } catch (err) {
       if (err instanceof ServerError) {
         return err.handle(res)

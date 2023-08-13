@@ -3,8 +3,8 @@ import { renderToPipeableStream } from "react-dom/server";
 import { ServerError, handler, HTTP } from "../utils";
 import { SiteManager } from "../utils/theme-manager";
 
-export default handler((req, res) => {
-  const site = SiteManager.create(req.hostname)
+export default handler(async (req, res) => {
+  const site = await SiteManager.create(req.hostname)
   if (!site) {
     throw new ServerError('site not found', HTTP.NOT_FOUND)
   }

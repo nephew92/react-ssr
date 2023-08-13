@@ -3,12 +3,12 @@ import { resolve } from "node:path";
 
 import { static as expressStatic } from "express";
 
+import blueprint from "@Server/service/api/blueprint";
 import { App } from "@Theme/App";
 
-const SITES = {
-  'new.local.consumertestconnect.com': 'ctc',
-  'new.local.shopgala.com': 'shopgala',
-}
+import Cache from "./cache-manager";
+
+const CACHE_MANAGER = new Cache(60)
 
 export class ThemeMaganer {
   constructor(name) {
@@ -58,9 +58,8 @@ export class ThemeMaganer {
 }
 
 export class SiteManager {
-  constructor(domain, theme, { aliases = [] } = {}) {
+  constructor(domain, theme) {
     this.domain = domain
-    this.aliases = aliases
     this.theme = ThemeMaganer.getOrCreate(theme)
   }
 
@@ -69,21 +68,28 @@ export class SiteManager {
    */
   static domains = {}
 
-  static create(domain) {
-    const theme = SITES[domain]
-    if (theme) {
-      const site = new this(domain, theme)
-      this.domains[domain] = site
-      return site
-    }
-    return null
+  static async create(domain) {
+    return await CACHE_MANAGER.get(domain, async () => {
+      try {
+        const { theme, aliases } = await blueprint(domain)
+
+        if (theme) {
+          const site = new this(domain, theme)
+          const domains = [].concat(domain, aliases || [])
+
+          for (const domain of domains) {
+            this.domains[domain] = site
+          }
+          return site
+        }
+      } catch (error) {
+        // ingore
+      }
+      return null
+    })
   }
 
   static get(domain) {
     return this.domains[domain]
-  }
-
-  static getOrCreate(domain) {
-    return this.get(domain) || this.create(domain)
   }
 }

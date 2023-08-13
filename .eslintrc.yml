@@ -28,6 +28,7 @@ parserOptions:
   sourceType: module
 plugins: [react-hooks, react, import]
 rules:
+  space-before-function-paren: off
   operator-linebreak: [error, none]
   linebreak-style: off
   indent: off
@@ -50,7 +51,9 @@ rules:
   quotes: off
   semi: off
   eqeqeq: [error, smart]
-  prefer-arrow-callback: error
+  prefer-arrow-callback:
+    - error
+    - allowNamedFunctions: true
   prefer-destructuring: error
   prefer-object-spread: error
   prefer-template: error
