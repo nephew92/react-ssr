@@ -4,7 +4,7 @@ export default function HTML({ children }) {
       <meta charSet="utf-8" />
       <title>Page | SSR</title>
       <meta name="description" content="SSR Test" data-react-helmet="true" />
-      <link rel="stylesheet" href="css/main.css"></link>
+      <link rel="stylesheet" href="/css/main.css"></link>
     </head>
     <body>
       <div id="root">{children}</div>

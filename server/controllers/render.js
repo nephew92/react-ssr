@@ -1,3 +1,5 @@
+import { StaticRouter } from "react-router-dom";
+
 import { renderToPipeableStream } from "react-dom/server";
 
 import { ServerError, handler, HTTP } from "../utils";
@@ -13,8 +15,12 @@ export default handler(async (req, res) => {
     throw new ServerError('theme not found', HTTP.NOT_FOUND)
   }
 
-  const stream = renderToPipeableStream(site.theme.getApp(), {
-    bootstrapScripts: ["js/vendors.bundle.js", "js/runtime.bundle.js", "js/main.bundle.js"],
+  const app = <StaticRouter location={req.url}>
+    {site.theme.getApp()}
+  </StaticRouter>
+
+  const stream = renderToPipeableStream(app, {
+    bootstrapScripts: ["/js/vendors.bundle.js", "/js/runtime.bundle.js", "/js/main.bundle.js"],
     onShellReady() {
       res.setHeader("content-type", "text/html");
       stream.pipe(res);

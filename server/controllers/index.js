@@ -10,6 +10,6 @@ controllers.use('/api', api)
 
 controllers.use(themeStatic);
 
-controllers.get("/", render)
+controllers.get("*", render)
 
 export default controllers
