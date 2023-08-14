@@ -13,7 +13,7 @@ module.exports = THEMES.split(',').map(THEME => env => {
    */
   const config = {
     target: "web",
-    entry: "./theme/index.jsx",
+    entry: "./theme/entry.jsx",
     output: {
       filename: "js/[name].bundle.js",
       path: path.resolve(__dirname, `../build/themes/${THEME}/static`),

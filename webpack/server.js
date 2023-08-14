@@ -15,7 +15,7 @@ module.exports = env => {
     externals: [nodeExternals({
       allowlist: [/\.(?!(?:jsx?|json)$).{1,5}$/i],
     })],
-    entry: "./server/index.js",
+    entry: "./server/entry.js",
     output: {
       filename: "bundle.js",
       path: path.resolve(__dirname, "../build/server"),
