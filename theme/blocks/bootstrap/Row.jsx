@@ -1,3 +1,3 @@
-import { Row } from "reactstrap";
+import { Row as RowBlock } from "reactstrap";
 
-export default Row
+export default RowBlock

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-export default function RouteLink({ to, children, className }) {
-  return <Link to={to} className={className}>
+export default function LinkBlock({ children, ...props }) {
+  return <Link {...props}>
     {children}
   </Link>
 }

@@ -1,3 +1,3 @@
-import { Button } from "reactstrap";
+import { Button as ButtonBlock } from "reactstrap";
 
-export default Button
+export default ButtonBlock

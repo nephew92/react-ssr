@@ -1,3 +1,3 @@
-import { FormGroup } from "reactstrap";
+import { FormGroup as FormGroupBlock } from "reactstrap";
 
-export default FormGroup
+export default FormGroupBlock

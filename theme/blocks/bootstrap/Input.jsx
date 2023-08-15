@@ -1,3 +1,3 @@
-import { Input } from "reactstrap";
+import { Input as InputBlock } from "reactstrap";
 
-export default Input
+export default InputBlock

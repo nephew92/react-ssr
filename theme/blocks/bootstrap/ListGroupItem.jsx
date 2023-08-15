@@ -1,3 +1,3 @@
-import { ListGroupItem } from "reactstrap";
+import { ListGroupItem as ListGroupItemBlock } from "reactstrap";
 
-export default ListGroupItem
+export default ListGroupItemBlock

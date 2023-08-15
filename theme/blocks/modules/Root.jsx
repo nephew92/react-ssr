@@ -1,5 +1,5 @@
-export default function Root({ children }) {
-  return <div>
+export default function RootBlock({ children, ...props }) {
+  return <div {...props}>
     {children}
   </div>
 }

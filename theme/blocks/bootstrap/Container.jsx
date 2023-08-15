@@ -1,3 +1,3 @@
-import { Container } from "reactstrap";
+import { Container as ContainerBlock } from "reactstrap";
 
-export default Container
+export default ContainerBlock

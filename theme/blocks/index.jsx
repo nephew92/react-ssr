@@ -4,7 +4,7 @@ const Routes = lazy(() => import("@Theme/blocks/router/Routes"));
 const Route = lazy(() => import("@Theme/blocks/router/Route"));
 const Link = lazy(() => import("@Theme/blocks/router/Link"));
 
-const Header1 = lazy(() => import("@Theme/blocks/content/Header1"));
+const Title1 = lazy(() => import("@Theme/blocks/content/Title1"));
 
 const ListGroup = lazy(() => import("@Theme/blocks/bootstrap/ListGroup"));
 const ListGroupItem = lazy(() => import("@Theme/blocks/bootstrap/ListGroupItem"));
@@ -21,7 +21,7 @@ const Registration = lazy(() => import("@Theme/blocks/modules/Registration"))
 const Root = lazy(() => import("@Theme/blocks/modules/Root"))
 
 export const BLOCKS = {
-  Header1,
+  Title1,
   Flex,
   Container,
   Row,

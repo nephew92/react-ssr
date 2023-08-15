@@ -1,3 +1,3 @@
-import { ListGroup } from "reactstrap";
+import { ListGroup as ListGroupBlock } from "reactstrap";
 
-export default ListGroup
+export default ListGroupBlock

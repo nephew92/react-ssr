@@ -1,3 +1,3 @@
-import { Card } from "reactstrap";
+import { Card as CardBlock } from "reactstrap";
 
-export default Card
+export default CardBlock
