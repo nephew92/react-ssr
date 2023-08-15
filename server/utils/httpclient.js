@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { api, apiKeyInternal } from '@Server/config';
-import '@Server/mock';
+import '@Server/../_mock/back';
 
 export const backendApi = axios.create({
   baseURL: api,
