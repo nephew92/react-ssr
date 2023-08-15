@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 
 import { static as expressStatic } from "express";
 
-import blueprint from "@Server/service/api/blueprint";
+import { blueprint } from "@Server/service/api/back";
 import { App } from "@Theme/App";
 
 import Cache from "./cache-manager";

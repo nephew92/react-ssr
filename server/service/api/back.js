@@ -1,6 +1,6 @@
 import { backendApi } from "@Server/utils/httpclient"
 
-export default async function blueprint(domain) {
+export async function blueprint(domain) {
   const { data } = await backendApi.get('/blueprint', {
     params: {
       domain,
@@ -9,3 +9,10 @@ export default async function blueprint(domain) {
 
   return data
 }
+
+export async function formLoad() {
+  const { data } = await backendApi.get('/form/load')
+
+  return data
+}
+

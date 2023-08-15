@@ -1,6 +1,7 @@
 import { Router as expressRouter } from "express";
 import { BAD_REQUEST, INTERNAL_SERVER_ERROR } from "http-status";
 
+import { formLoad } from "@Server/service/api/back";
 import { ServerError, handler } from "@Server/utils";
 
 const form = expressRouter()
@@ -14,15 +15,9 @@ form.get('/load', handler(async (req, res, next) => {
     throw new ServerError('invalid request', BAD_REQUEST)
   }
 
-  res.json({
-    firstName: 'Joao',
-    lastName: 'Banana',
-    email: 'banana@nana.com',
-    city: 'Bananaville',
-    state: 'Bananalandia',
-    address1: 'banana split st, 44',
-    address2: 'apt 55',
-  })
+  const data = await formLoad()
+
+  res.json(data)
 }))
 
 export default form
