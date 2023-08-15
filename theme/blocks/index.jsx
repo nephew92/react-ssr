@@ -18,7 +18,7 @@ const Flex = lazy(() => import("@Theme/blocks/layout/Flex"));
 const Root = lazy(() => import("@Theme/blocks/modules/Root"))
 
 const Form = lazy(() => import("@Theme/blocks/form/Form"))
-const FormContinue = lazy(() => import("@Theme/blocks/form/FormContinue"))
+const FormContinue = lazy(() => import("@Theme/blocks/form/Continue"))
 const FormFirstName = lazy(() => import("@Theme/blocks/form/FirstName"))
 const FormLastName = lazy(() => import("@Theme/blocks/form/LastName"))
 const FormEmail = lazy(() => import("@Theme/blocks/form/Email"))

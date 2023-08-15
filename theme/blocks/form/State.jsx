@@ -1,5 +1,11 @@
-import FormFieldBlock from "./FormField"
+import { Label } from "reactstrap"
 
-export default function FormStateBlock(props) {
-  return <FormFieldBlock name='state' {...props} />
+import FormColGroupBlock from "./FormColGroup"
+import FormInputBlock from "./_FormInput"
+
+export default function FormStateBlock({ col, label, ...props }) {
+  return <FormColGroupBlock {...col}>
+    <Label htmlFor='state'>{label}</Label>
+    <FormInputBlock {...props} id='state' name='state' />
+  </FormColGroupBlock>
 }

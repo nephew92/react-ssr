@@ -1,5 +1,11 @@
-import FormFieldBlock from "./FormField";
+import { Label } from "reactstrap";
 
-export default function FormLastNameBlock(props) {
-  return <FormFieldBlock name='lastName' {...props} />
+import FormColGroupBlock from "./FormColGroup";
+import FormInputBlock from "./_FormInput";
+
+export default function FormLastNameBlock({ col, label, ...props }) {
+  return <FormColGroupBlock {...col}>
+    <Label htmlFor='lastName'>{label}</Label>
+    <FormInputBlock {...props} id='lastName' name='lastName' />
+  </FormColGroupBlock>
 }
