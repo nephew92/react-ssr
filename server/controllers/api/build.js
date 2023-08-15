@@ -1,4 +1,6 @@
 import { execSync } from 'node:child_process'
+import { createWriteStream } from 'node:fs';
+import { get as httpGet } from 'node:https';
 
 import { parse as parseYml } from "yaml";
 
@@ -35,14 +37,14 @@ export default [
     }
     next()
   }),
-  handler((req, res) => {
+  handler(async (req, res) => {
     const { locals: { data } } = req
 
     if (!data) {
       throw new ServerError('A body is required.', HTTP.BAD_REQUEST).json()
     }
 
-    const { blocks, theme } = data
+    const { blocks, theme, media } = data
     if (!blocks) {
       throw new ServerError('blocks field is required', HTTP.BAD_REQUEST).json()
     }
@@ -51,6 +53,11 @@ export default [
 
     // run yarn build:theme
     execSync(`THEMES=${theme} yarn build:theme > build/themes/${theme}/build.log.text`)
+
+    if (Array.isArray(media)) {
+      await downloadMedia(media, `./build/themes/${theme}/static`)
+    }
+
     ThemeMaganer.getOrCreate(theme).mountApp()
     // generate tarball
 
@@ -60,3 +67,16 @@ export default [
   }),
 ]
 
+async function downloadMedia(items, folder) {
+  if (Array.isArray(items)) {
+    await Promise.all(items.map(({ file, url }) => downloadFile(`${folder}/${file}`, url)))
+  }
+}
+
+async function downloadFile(filepath, url) {
+  return await new Promise(resolve => httpGet(url, response => {
+    const file = createWriteStream(filepath, { autoClose: true });
+    response.pipe(file)
+    file.on('finish', resolve);
+  }));
+}
