@@ -3,9 +3,9 @@ import { createContext, useCallback, useContext, useMemo, useState } from "react
 
 import { merge } from "lodash";
 
-import { internalApi } from "@Theme/utils/httpclient";
+import { cmsApi } from "@Theme/utils/httpclient";
 
-function hookBaseFactory(apiClient = internalApi) {
+function hookBaseFactory(apiClient = cmsApi) {
   return () => {
     const [loading, setLoading] = useState(false)
 

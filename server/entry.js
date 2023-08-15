@@ -14,6 +14,6 @@ app.use(urlencoded({ extended: true, limit: '50mb' }));
 
 app.use(controllers)
 
-app.listen(3000, () => {
+app.listen(3002, () => {
   console.log("listening on port 3000");
 });

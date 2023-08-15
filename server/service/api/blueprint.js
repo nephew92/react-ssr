@@ -1,7 +1,7 @@
-import { internalApi } from "@Server/utils/httpclient"
+import { backendApi } from "@Server/utils/httpclient"
 
 export default async function blueprint(domain) {
-  const { data } = await internalApi.get('/blueprint', {
+  const { data } = await backendApi.get('/blueprint', {
     params: {
       domain,
     },
