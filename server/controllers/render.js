@@ -1,6 +1,5 @@
-import { StaticRouter } from "react-router-dom";
-
 import { renderToPipeableStream } from "react-dom/server";
+import { StaticRouter } from "react-router-dom/server";
 
 import { ServerError, handler, HTTP } from "../utils";
 import { SiteManager } from "../utils/theme-manager";

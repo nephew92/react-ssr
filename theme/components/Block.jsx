@@ -1,3 +1,5 @@
+import { Route, Routes } from "react-router-dom"
+
 import { BLOCKS } from "@Theme/blocks"
 
 export default function BlocksComponent({ blocks }) {
@@ -7,6 +9,15 @@ export default function BlocksComponent({ blocks }) {
         return block
       }
       const { component, children, props } = block
+
+      if (component === 'Routes') {
+        return <Routes key={idx} {...props}>
+          {children.map(({ children, props: { path } }, idx) => <Route key={idx}
+            path={path}
+            element={<BlocksComponent blocks={children} />}
+          />)}
+        </Routes>
+      }
 
       const Component = BLOCKS[component]
       if (Component) {

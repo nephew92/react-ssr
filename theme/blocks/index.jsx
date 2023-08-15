@@ -1,7 +1,5 @@
 import lazy from "@Theme/utils/lazy";
 
-const Routes = lazy(() => import("@Theme/blocks/router/Routes"));
-const Route = lazy(() => import("@Theme/blocks/router/Route"));
 const Link = lazy(() => import("@Theme/blocks/router/Link"));
 
 const Title1 = lazy(() => import("@Theme/blocks/content/Title1"));
@@ -39,8 +37,6 @@ export const BLOCKS = {
   ListGroupItem,
   Form,
   Root,
-  Routes,
-  Route,
   FormGroup,
   Button,
   Input,
