@@ -17,8 +17,17 @@ const Row = lazy(() => import("@Theme/blocks/bootstrap/Row"));
 
 const Flex = lazy(() => import("@Theme/blocks/layout/Flex"));
 
-const Registration = lazy(() => import("@Theme/blocks/modules/Registration"))
 const Root = lazy(() => import("@Theme/blocks/modules/Root"))
+
+const Form = lazy(() => import("@Theme/blocks/form/Form"))
+const FormContinue = lazy(() => import("@Theme/blocks/form/FormContinue"))
+const FormFirstName = lazy(() => import("@Theme/blocks/form/FirstName"))
+const FormLastName = lazy(() => import("@Theme/blocks/form/LastName"))
+const FormEmail = lazy(() => import("@Theme/blocks/form/Email"))
+const FormCity = lazy(() => import("@Theme/blocks/form/City"))
+const FormState = lazy(() => import("@Theme/blocks/form/State"))
+const FormAddress1 = lazy(() => import("@Theme/blocks/form/Address1"))
+const FormAddress2 = lazy(() => import("@Theme/blocks/form/Address2"))
 
 export const BLOCKS = {
   Title1,
@@ -28,7 +37,7 @@ export const BLOCKS = {
   Col,
   ListGroup,
   ListGroupItem,
-  Registration,
+  Form,
   Root,
   Routes,
   Route,
@@ -36,4 +45,12 @@ export const BLOCKS = {
   Button,
   Input,
   Link,
+  FormFirstName,
+  FormLastName,
+  FormEmail,
+  FormCity,
+  FormState,
+  FormAddress1,
+  FormAddress2,
+  FormContinue,
 }
