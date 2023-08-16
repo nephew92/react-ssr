@@ -5,6 +5,4 @@ yarn.lock
 
 .DS_Store
 
-_mock/back.js
-
-react-ssr-theme-ctc.blocks.yml
+_mock/

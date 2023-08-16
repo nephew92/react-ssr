@@ -9,6 +9,7 @@
     "build:server": "yarn build --config webpack/server.js",
     "start:server": "node build/server/bundle.js",
     "dev": "yarn build:theme && yarn build:server && yarn start:server",
+    "dev:build:ctc": "nodemon -e yml,js,jsx,json -i build/ --delay 7 -x 'curl -X \"POST\" -H \"Content-Type: text/plain\" \"http://localhost:3002/api/build?mode=yaml\" -d \"$(cat ./_mock/react-ssr-theme-ctc.blocks.yml)\"'",
     "dev:server": "yarn build:server && yarn start:server",
     "watch": "nodemon -e js,jsx,json -i build/ -x yarn"
   },
