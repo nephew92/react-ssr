@@ -8,6 +8,8 @@ settings:
     version: detect
     flowVersion: "0.53"
   import/resolver:
+    node:
+      extensions: [.ts, .tsx, .native.js]
     webpack:
       config: "./webpack/server.js"
       env:

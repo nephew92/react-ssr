@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 
-import { BLOCKS } from "@Theme/blocks"
+import { BLOCKS } from "@/theme/blocks"
 
 export default function BlocksComponent({ blocks }) {
   return <>

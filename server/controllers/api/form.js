@@ -1,8 +1,8 @@
 import { Router as expressRouter } from "express";
 import { BAD_REQUEST, INTERNAL_SERVER_ERROR } from "http-status";
 
-import { formLoad } from "@Server/service/api/back";
-import { ServerError, handler } from "@Server/utils";
+import { formLoad } from "@/server/service/api/back";
+import { ServerError, handler } from "@/server/utils";
 
 const form = expressRouter()
 

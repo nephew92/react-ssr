@@ -1,4 +1,4 @@
-import { backendApi } from "@Server/utils/httpclient"
+import { backendApi } from "@/server/utils/httpclient"
 
 export async function blueprint(domain) {
   const { data } = await backendApi.get('/blueprint', {

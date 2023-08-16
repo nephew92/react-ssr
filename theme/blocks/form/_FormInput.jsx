@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Input } from "reactstrap";
 
-import { useFormStore } from "@Theme/hooks/use-form";
+import { useFormStore } from "@/theme/hooks/use-form";
 
 export default function FormInputBlock({ name, disabled, max, min, pattern, required, ...props }) {
   const { context: { register, getValues } } = useFormStore()

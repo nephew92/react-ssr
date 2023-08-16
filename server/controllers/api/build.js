@@ -4,8 +4,8 @@ import { get as httpGet } from 'node:https';
 
 import { parse as parseYml } from "yaml";
 
-import { HTTP, ServerError, handler, writeFileDirSync } from "@Server/utils";
-import { ThemeMaganer } from '@Server/utils/theme-manager';
+import { HTTP, ServerError, handler, writeFileDirSync } from "@/server/utils";
+import { ThemeMaganer } from '@/server/utils/theme-manager';
 
 export default [
   handler((req, res, next) => {
