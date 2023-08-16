@@ -1,14 +1,15 @@
 import { Form } from "reactstrap";
 
+import BlocksComponent from "@Theme/components/Block";
 import { FormProvider, useFormStore } from "@Theme/hooks/use-form";
 
 function FormBlock({ children, ...props }) {
-  const { handleSubmit: useForm } = useFormStore()
+  const { handleSubmit: useForm, definition } = useFormStore()
 
   const handleSubmit = useForm()
 
   return <Form {...props} onSubmit={handleSubmit}>
-    {children}
+    <BlocksComponent blocks={definition} />
   </Form>
 }
 

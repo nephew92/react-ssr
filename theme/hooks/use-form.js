@@ -6,15 +6,17 @@ import createStore from "./factory";
 const { Provider, useStore } = createStore()
   .extend(({ fetch, loading }) => {
     const [data, setData] = useState(null)
+    const [definition, setDefinition] = useState([])
 
     const load = useCallback(async () => {
-      const data = await fetch({
+      const { consumer, definition } = await fetch({
         method: 'GET',
         url: '/form/load',
       })
 
-      setData(data)
-      return data
+      setData(consumer)
+      setDefinition(definition)
+      return consumer
     }, [fetch])
 
     const save = useCallback(async data => {
@@ -32,8 +34,9 @@ const { Provider, useStore } = createStore()
     return useMemo(() => ({
       context,
       data,
+      definition,
       handleSubmit: () => context.handleSubmit(save),
-    }), [context, save, data])
+    }), [context, save, data, definition])
   })
   .factory()
 
