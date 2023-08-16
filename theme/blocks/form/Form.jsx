@@ -1,7 +1,7 @@
 import { Form } from "reactstrap";
 
-import BlocksComponent from "@Theme/components/Block";
-import { FormProvider, useFormStore } from "@Theme/hooks/use-form";
+import BlocksComponent from "@/theme/components/Block";
+import { FormProvider, useFormStore } from "@/theme/hooks/use-form";
 
 function FormBlock({ children, ...props }) {
   const { handleSubmit: useForm, definition } = useFormStore()

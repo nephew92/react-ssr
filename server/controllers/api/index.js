@@ -1,7 +1,7 @@
 import { Router as expressRouter } from "express";
 import { NOT_FOUND } from "http-status";
 
-import { ServerError, handler } from "@Server/utils";
+import { ServerError, handler } from "@/server/utils";
 
 import build from "./build";
 import form from "./form";

@@ -17,9 +17,7 @@ module.exports = env => {
     },
     resolve: {
       alias: {
-        "@Build": path.resolve(__dirname, '../build'),
-        "@Server": path.resolve(__dirname, '../server'),
-        "@Theme": path.resolve(__dirname, '../theme'),
+        "@": path.resolve(__dirname, '../'),
       },
       extensions: ['.jsx', '.js', '.json'],
     },

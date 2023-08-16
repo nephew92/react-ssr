@@ -1,5 +1,5 @@
-import { handler } from "@Server/utils";
-import { SiteManager } from "@Server/utils/theme-manager";
+import { handler } from "@/server/utils";
+import { SiteManager } from "@/server/utils/theme-manager";
 
 export default handler((req, res, next) => {
   const { hostname } = req

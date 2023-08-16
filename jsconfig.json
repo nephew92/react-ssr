@@ -7,9 +7,7 @@
     "baseUrl": "./",
     "jsx": "react",
     "paths": {
-      "@Build/*": ["build/*"],
-      "@Server/*": ["server/*"],
-      "@Theme/*": ["theme/*"]
+      "@/*": ["./*"]
     }
   }
 }

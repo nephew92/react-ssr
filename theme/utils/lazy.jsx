@@ -1,6 +1,6 @@
 import { Suspense, lazy } from "react"
 
-import Loading from "@Theme/components/Loading"
+import Loading from "@/theme/components/Loading"
 
 export default importer => {
   const Component = lazy(importer)
