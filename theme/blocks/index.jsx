@@ -26,6 +26,7 @@ const FormCity = lazy(() => import("@Theme/blocks/form/City"))
 const FormState = lazy(() => import("@Theme/blocks/form/State"))
 const FormAddress1 = lazy(() => import("@Theme/blocks/form/Address1"))
 const FormAddress2 = lazy(() => import("@Theme/blocks/form/Address2"))
+const FormLabel = lazy(() => import("@Theme/blocks/form/Label"))
 
 export const BLOCKS = {
   Title1,
@@ -49,4 +50,5 @@ export const BLOCKS = {
   FormAddress1,
   FormAddress2,
   FormContinue,
+  FormLabel,
 }
