@@ -1,19 +1,12 @@
-import { useMemo } from "react";
+import { useFormContext } from "react-hook-form";
 import { Input } from "reactstrap";
 
-import { useFormStore } from "@/theme/hooks/use-form";
+export default function FormInputBlock({ name, ...props }) {
+  const { register } = useFormContext()
+  const { ref, ...defaults } = register(name, props)
 
-export default function FormInputBlock({ name, disabled, max, min, pattern, required, ...props }) {
-  const { context: { register, getValues } } = useFormStore()
-  const defaults = useMemo(() => register(name, { disabled, max, min, pattern, required }), [disabled, max, min, name, pattern, register, required])
-
-  // useEffect(() => {
-  // setValue(value)
-  // }, [value, setValue])
-
-  return <Input
+  return <Input innerRef={ref}
     {...props}
     {...defaults}
-    defaultValue={getValues(name)}
   />
 }

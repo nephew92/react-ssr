@@ -1,11 +1,11 @@
 import { useCallback, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 
-import createStore from "./factory";
+import createStore from "../factory";
 
 const { Provider, useStore } = createStore()
   .extend(({ fetch, loading }) => {
-    const [data, setData] = useState(null)
+    // const [data, setData] = useState(null)
     const [definition, setDefinition] = useState([])
 
     const load = useCallback(async () => {
@@ -14,7 +14,7 @@ const { Provider, useStore } = createStore()
         url: '/form/load',
       })
 
-      setData(consumer)
+      // setData(consumer)
       setDefinition(definition)
       return consumer
     }, [fetch])
@@ -33,10 +33,10 @@ const { Provider, useStore } = createStore()
 
     return useMemo(() => ({
       context,
-      data,
+      // data,
       definition,
-      handleSubmit: () => context.handleSubmit(save),
-    }), [context, save, data, definition])
+      handleSubmit: context.handleSubmit(save),
+    }), [context, save, definition])
   })
   .factory()
 
