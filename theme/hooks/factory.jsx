@@ -81,7 +81,7 @@ class StoreFactory {
  * @param {function(): BaseStore} useBaseStore
  * @return {StoreFactory<BaseStore>}
  */
-function createStore(useBaseStore) {
+export function createFactory(useBaseStore) {
   return new class extends StoreFactory {
     useStoreFactory() {
       return useBaseStore()
@@ -89,4 +89,4 @@ function createStore(useBaseStore) {
   }
 }
 
-export default apiClient => createStore(hookBaseFactory(apiClient))
+export default apiClient => createFactory(hookBaseFactory(apiClient))

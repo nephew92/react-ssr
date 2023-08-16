@@ -41,6 +41,6 @@ const { Provider, useStore } = createStore()
   .factory()
 
 export {
-  Provider as FormProvider,
+  Provider as FormStoreProvider,
   useStore as useFormStore,
 }

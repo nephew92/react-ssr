@@ -1,9 +1,9 @@
 import { Form } from "reactstrap";
 
 import BlocksComponent from "@/theme/components/Block";
-import { FormProvider, useFormStore } from "@/theme/hooks/use-form";
+import { FormStoreProvider, useFormStore } from "@/theme/hooks/use-form";
 
-function FormBlock({ children, ...props }) {
+function FormBlock(props) {
   const { handleSubmit: useForm, definition } = useFormStore()
 
   const handleSubmit = useForm()
@@ -13,12 +13,10 @@ function FormBlock({ children, ...props }) {
   </Form>
 }
 
-export default function FormProviderBlock({ children, ...props }) {
-  return <FormProvider>
-    <FormBlock {...props}>
-      {children}
-    </FormBlock>
-  </FormProvider>
+export default function FormProviderBlock(props) {
+  return <FormStoreProvider>
+    <FormBlock {...props} />
+  </FormStoreProvider>
 }
 
 FormBlock.defaultProps = {
