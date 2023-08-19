@@ -1,15 +1,13 @@
-import { Router as expressRouter } from "express";
+import express, { Router as expressRouter } from "express";
 
-import api from "./api";
 import render from "./render";
-import themeStatic from "./theme-static";
 
 const controllers = expressRouter()
 
-controllers.use('/api', api)
+controllers.get('/', render.index)
 
-controllers.use(themeStatic);
+controllers.put('/react', render.ssr);
 
-controllers.get("*", render)
+controllers.use(express.static('build/themes/ctc/static'));
 
 export default controllers

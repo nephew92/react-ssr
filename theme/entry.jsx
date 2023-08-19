@@ -1,13 +1,5 @@
-import { BrowserRouter } from "react-router-dom";
+import { createRoot } from 'react-dom/client';
 
-import { hydrateRoot } from "react-dom/client";
+import { Router } from './router'
 
-import { App } from "./App";
-
-const blocks = require(`@/build/themes/${process.env.THEME}/blocks.json`);
-
-hydrateRoot(document,
-  <BrowserRouter>
-    <App blocks={blocks} />
-  </BrowserRouter>,
-);
+createRoot(document.getElementById('root')).render(<Router />)

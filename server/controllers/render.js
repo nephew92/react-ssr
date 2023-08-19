@@ -1,28 +1,29 @@
+import { readFileSync } from 'node:fs';
+
 import { renderToPipeableStream } from "react-dom/server";
-import { StaticRouter } from "react-router-dom/server";
+import { renderToPipeableStream as renderToPipeableStreamServer } from 'react-server-dom-webpack/server';
 
-import { ServerError, handler, HTTP } from "../utils";
-import { SiteManager } from "../utils/theme-manager";
+import StaticHTML from '../components/HTML';
+import ServerApp from '../components/ServerApp';
+import { handler } from '../utils';
 
-export default handler(async (req, res) => {
-  const site = await SiteManager.create(req.hostname)
-  if (!site) {
-    throw new ServerError('site not found', HTTP.NOT_FOUND)
-  }
+export default {
+  index: handler(async (req, res) => {
+    res.setHeader("content-type", "text/html");
+    renderToPipeableStream(<StaticHTML title='SSR + RSC' />)
+      .pipe(res)
+  }),
 
-  if (!site?.theme?.isDownloaded()) {
-    throw new ServerError('theme not found', HTTP.NOT_FOUND)
-  }
+  ssr: handler(async (req, res) => {
+    const { selectedId, isEditing, searchText } = req.body
 
-  const app = <StaticRouter location={req.url}>
-    {site.theme.getApp()}
-  </StaticRouter>
+    const manifest = readFileSync(require.resolve('@/build/themes/ctc/static/react-client-manifest.json'));
+    const moduleMap = JSON.parse(manifest);
 
-  const stream = renderToPipeableStream(app, {
-    bootstrapScripts: ["/js/vendors.bundle.js", "/js/runtime.bundle.js", "/js/main.bundle.js"],
-    onShellReady() {
-      res.setHeader("content-type", "text/html");
-      stream.pipe(res);
-    },
-  });
-})
+    const props = { selectedId, isEditing, searchText }
+
+    res.set('X-Location', JSON.stringify(props));
+    renderToPipeableStreamServer(<ServerApp {...props} />, moduleMap)
+      .pipe(res);
+  }),
+}

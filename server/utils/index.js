@@ -1,7 +1,7 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 
-import * as HTTP from "http-status";
+import HTTP from "http-status";
 
 export { HTTP }
 

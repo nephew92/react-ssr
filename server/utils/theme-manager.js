@@ -1,12 +1,13 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync } from "node:fs";
 import { resolve } from "node:path";
 
 import { static as expressStatic } from "express";
 
 import { blueprint } from "@/server/service/api/back";
-import { App } from "@/theme/App";
 
 import Cache from "./cache-manager";
+
+// import { App } from "@/theme/ServerApp";
 
 const CACHE_MANAGER = new Cache(60)
 
@@ -30,8 +31,8 @@ export class ThemeMaganer {
   }
 
   mountApp() {
-    const blocks = JSON.parse(readFileSync(`${this.themeDir}/blocks.json`, { encoding: 'utf-8' }))
-    this._app = <App blocks={blocks} />
+    // const blocks = JSON.parse(readFileSync(`${this.themeDir}/blocks.json`, { encoding: 'utf-8' }))
+    // this._app = <App blocks={blocks} />
   }
 
   /**

@@ -1,6 +1,7 @@
 import { json, urlencoded, text } from "body-parser";
-import * as compression from "compression";
-import * as express from "express";
+import compression from "compression";
+import express from "express";
+import register from "react-server-dom-webpack/node-register";
 
 import controllers from "./controllers";
 
@@ -14,6 +15,9 @@ app.use(urlencoded({ extended: true, limit: '50mb' }));
 
 app.use(controllers)
 
-app.listen(3002, () => {
-  console.log("listening on port 3000");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`listening on port ${PORT}`);
 });
+
+register();
