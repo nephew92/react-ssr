@@ -4,10 +4,11 @@
   "description": "Simple SSR example using React",
   "main": "index.js",
   "scripts": {
-    "build:theme": "node webpack.config.js",
-    "start": "node -r @babel/register --conditions=react-server server",
-    "dev": "yarn watch start",
-    "dev:build:ctc": "nodemon -e yml,js,jsx,json -i build/ --delay 10 -x 'curl -X \"POST\" -H \"Content-Type: text/plain\" \"http://localhost:3002/api/build?mode=yaml\" -d \"$(cat ./_mock/react-ssr-theme-ctc.blocks.yml)\"'",
+    "client": "node webpack.config.js",
+    "server": "node -r @babel/register --conditions=react-server server",
+    "client:dev": "NODE_ENV=development yarn watch client -i server/",
+    "server:dev": "NODE_ENV=development yarn watch server -i client/",
+    "client:dev:ctc": " THEMES=ctc yarn client:dev",
     "eslint": "npx eslint --fix",
     "watch": "nodemon -e js,jsx,json -i build/ -x yarn"
   },

@@ -1,7 +1,6 @@
 import { json, urlencoded, text } from "body-parser";
 import compression from "compression";
 import express from "express";
-import register from "react-server-dom-webpack/node-register";
 
 import controllers from "./controllers";
 
@@ -20,4 +19,3 @@ app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
 
-register();
