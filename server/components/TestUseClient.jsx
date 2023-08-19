@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-export default function TestBlock() {
+export default function TestUseClient() {
   console.log('renderizou');
   useState(() => {
     console.log('montou');

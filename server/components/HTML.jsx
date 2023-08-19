@@ -1,7 +1,3 @@
-'use server'
-'not use async'
-'not use hook'
-
 export default function StaticHTML({ title }) {
   return <html lang="en">
     <head>
