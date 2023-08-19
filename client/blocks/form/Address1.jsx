@@ -5,7 +5,7 @@ import classnames from "classnames"
 import FormColGroupBlock from "./FormColGroup"
 import FormInputBlock from "./_FormInput"
 
-import { DynamicProvider, useDynamic } from "@/theme/hooks/form/use-dynamic"
+import { DynamicProvider, useDynamic } from "@/client/hooks/form/use-dynamic"
 
 function FormAddress1Component({ col: { className, ...col } = {}, label, controls, ...props }) {
   const { name, isVisible } = useDynamic(controls || {})

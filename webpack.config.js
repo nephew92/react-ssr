@@ -30,7 +30,7 @@ const config = {
   mode: NODE_ENV,
   performance: false,
   target: "web",
-  entry: "./theme/entry.jsx",
+  entry: "./client/entry.jsx",
   output: {
     filename: "js/[name].bundle.js",
     clean: true,

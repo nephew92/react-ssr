@@ -1,8 +1,8 @@
 import { FormProvider } from "react-hook-form";
 import { Form } from "reactstrap";
 
-import BlocksComponent from "@/theme/components/Block";
-import { FormStoreProvider, useFormStore } from "@/theme/hooks/form/use-store";
+import BlocksComponent from "@/client/components/Block";
+import { FormStoreProvider, useFormStore } from "@/client/hooks/form/use-store";
 
 function FormBlock(props) {
   const { handleSubmit, context, definition } = useFormStore()
