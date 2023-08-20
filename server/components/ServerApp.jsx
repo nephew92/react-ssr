@@ -1,16 +1,14 @@
-import { Suspense } from "react";
-
 import ColBlock from "@/client/blocks/bootstrap/Col";
 import ContainerBlock from "@/client/blocks/bootstrap/Container";
 import RowBlock from "@/client/blocks/bootstrap/Row";
 import Title1Block from "@/client/blocks/content/Title1";
-import RootBlock from "@/client/blocks/modules/Root";
+import SessionBlock from "@/client/blocks/modules/Session";
 import RouterBlock from "@/client/components/RouteBlock";
 
-import FormBlockServer from "./FormBlock";
+import FormBlockServer from "./Form";
 
-export default async function ServerApp({ blocks }) {
-  return <RootBlock>
+export default async function ServerApp({ blocks, session }) {
+  return <SessionBlock session={session}>
     <ContainerBlock fluid>
       <RowBlock className="justify-content-center">
         <ColBlock xs='auto' className='py-5 mb-5'>
@@ -30,9 +28,7 @@ export default async function ServerApp({ blocks }) {
                 </RowBlock>
                 <RowBlock>
                   <ColBlock>
-                    <Suspense fallback={'carregando'}>
-                      <FormBlockServer />
-                    </Suspense>
+                    <FormBlockServer />
                   </ColBlock>
                 </RowBlock>
               </>,
@@ -41,5 +37,5 @@ export default async function ServerApp({ blocks }) {
         </ColBlock>
       </RowBlock>
     </ContainerBlock>
-  </RootBlock>
+  </SessionBlock>
 }

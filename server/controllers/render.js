@@ -5,6 +5,7 @@ import { renderToPipeableStream as renderToPipeableStreamServer } from 'react-se
 
 import StaticHTML from '../components/HTML';
 import ServerApp from '../components/ServerApp';
+import { formLoad } from '../service/api/back';
 import { handler } from '../utils';
 
 export default {
@@ -23,10 +24,12 @@ export default {
 
     const props = { selectedId, isEditing, searchText }
 
-    const definition = require('@/_mock/react-ssr-theme-ctc.blocks.json')
+    const { blocks } = require('@/_mock/react-ssr-theme-ctc.blocks.json')
+
+    const { consumer } = await formLoad()
 
     res.set('X-Location', JSON.stringify(props));
-    renderToPipeableStreamServer(<ServerApp {...definition} />, moduleMap)
+    renderToPipeableStreamServer(<ServerApp blocks={blocks} session={{ consumer }} />, moduleMap)
       .pipe(res);
   }),
 }

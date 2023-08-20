@@ -3,6 +3,8 @@
 import { useCallback, useMemo } from "react";
 import { useForm } from "react-hook-form";
 
+import { useSessionContext } from "@/client/blocks/modules/Session";
+
 import createStore from "../factory";
 
 const { Provider, useStore } = createStore()
@@ -15,7 +17,10 @@ const { Provider, useStore } = createStore()
       })
     }, [fetch])
 
-    const context = useForm()
+    const { consumer } = useSessionContext()
+    const context = useForm({
+      defaultValues: consumer,
+    })
 
     return useMemo(() => ({
       context,

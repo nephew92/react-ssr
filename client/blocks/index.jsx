@@ -8,7 +8,7 @@ import FormGroup from "@/client/blocks/bootstrap/FormGroup";
 import Input from "@/client/blocks/bootstrap/Input";
 import Row from "@/client/blocks/bootstrap/Row";
 import Title1 from "@/client/blocks/content/Title1";
-import Root from "@/client/blocks/modules/Root"
+import Session from "@/client/blocks/modules/Session"
 import Link from "@/client/blocks/router/Link";
 
 import lazy from "../utils/lazy";
@@ -37,7 +37,7 @@ export const BLOCKS = {
   ListGroup,
   ListGroupItem,
   Form,
-  Root,
+  Session,
   FormGroup,
   Button,
   Input,
