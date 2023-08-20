@@ -1,3 +1,5 @@
+'use client';
+
 import { isEmpty } from "lodash";
 
 import useActions from "./use-actions";

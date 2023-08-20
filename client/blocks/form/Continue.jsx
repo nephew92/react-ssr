@@ -1,3 +1,5 @@
+'use client';
+
 import ColBlock from "../bootstrap/Col";
 import LinkBlock from "../router/Link";
 

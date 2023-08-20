@@ -1,3 +1,4 @@
+'use client';
 
 import { DynamicContextProvider, useDynamicContext } from "./context";
 import useVisibility from "./use-visibility";

@@ -1,3 +1,5 @@
+'use client';
+
 import ColBlock from "../bootstrap/Col";
 import FormGroupBlock from "../bootstrap/FormGroup";
 

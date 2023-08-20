@@ -1,3 +1,5 @@
+'use client';
+
 import classnames from "classnames";
 
 export default function FlexBlock({ children, className, ...props }) {

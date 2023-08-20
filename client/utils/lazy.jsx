@@ -1,3 +1,5 @@
+'use client';
+
 import { Suspense, lazy } from "react"
 
 import Loading from "@/client/components/Loading"

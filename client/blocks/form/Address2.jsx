@@ -1,3 +1,5 @@
+'use client';
+
 import { Label } from "reactstrap"
 
 import FormColGroupBlock from "./FormColGroup"

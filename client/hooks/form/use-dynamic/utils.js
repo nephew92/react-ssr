@@ -1,3 +1,5 @@
+'use client';
+
 import { useController } from "react-hook-form";
 
 import { useDynamicContext } from "./context";

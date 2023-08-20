@@ -1,3 +1,5 @@
+'use client';
+
 import lazy from "@/client/utils/lazy";
 
 const Link = lazy(() => import("@/client/blocks/router/Link"));

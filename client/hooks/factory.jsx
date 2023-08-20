@@ -1,4 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+
+'use client';
+
 import { createContext, useCallback, useContext, useMemo, useState } from "react";
 
 import { merge } from "lodash";
