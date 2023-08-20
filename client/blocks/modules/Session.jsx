@@ -21,7 +21,7 @@ class SessionContextDefinition {
 
 const SessionContext = createContext(new SessionContextDefinition)
 
-export default function SessionBlock({ className, session, children, ...props }) {
+export default function SessionBlockProvider({ className, session, children, ...props }) {
   className = classnames("root-content", className)
 
   return <SessionContext.Provider value={session}>

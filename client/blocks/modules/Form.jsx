@@ -19,7 +19,7 @@ function FormBlock({ children, className, ...props }) {
   </FormProvider>
 }
 
-export default function FormProviderBlock({ children, ...props }) {
+export default function FormBlockProvider({ children, ...props }) {
   return <FormStoreProvider>
     <FormBlock {...props}>
       {children}
