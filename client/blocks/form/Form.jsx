@@ -3,25 +3,25 @@
 import { FormProvider } from "react-hook-form";
 import { Form } from "reactstrap";
 
-import BlocksComponent from "@/client/components/Block";
 import { FormStoreProvider, useFormStore } from "@/client/hooks/form/use-store";
+import * as classnames from "classnames";
 
-function FormBlock(props) {
-  const { handleSubmit, context, definition } = useFormStore()
+function FormBlock({ children, className, ...props }) {
+  const { handleSubmit, context } = useFormStore()
+
+  className = classnames("registration")
 
   return <FormProvider {...context}>
-    <Form {...props} onSubmit={handleSubmit}>
-      <BlocksComponent blocks={definition} />
+    <Form {...props} className={className} onSubmit={handleSubmit}>
+      {children}
     </Form>
   </FormProvider>
 }
 
-export default function FormProviderBlock(props) {
+export default function FormProviderBlock({ children, ...props }) {
   return <FormStoreProvider>
-    <FormBlock {...props} />
+    <FormBlock {...props}>
+      {children}
+    </FormBlock>
   </FormStoreProvider>
-}
-
-FormBlock.defaultProps = {
-  className: "registration",
 }

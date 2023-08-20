@@ -22,8 +22,10 @@ export default {
 
     const props = { selectedId, isEditing, searchText }
 
+    const definition = require('@/_mock/react-ssr-theme-ctc.blocks.json')
+
     res.set('X-Location', JSON.stringify(props));
-    renderToPipeableStreamServer(<ServerApp {...props} />, moduleMap)
+    renderToPipeableStreamServer(<ServerApp {...definition} />, moduleMap)
       .pipe(res);
   }),
 }

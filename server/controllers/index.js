@@ -4,10 +4,10 @@ import render from "./render";
 
 const controllers = expressRouter()
 
-controllers.get('/', render.index)
+controllers.use(express.static('build/themes/ctc/static'));
 
 controllers.put('/react', render.ssr);
 
-controllers.use(express.static('build/themes/ctc/static'));
+controllers.get('/*', render.index)
 
 export default controllers
