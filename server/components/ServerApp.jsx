@@ -4,7 +4,6 @@ import ColBlock from "@/client/blocks/bootstrap/Col";
 import ContainerBlock from "@/client/blocks/bootstrap/Container";
 import RowBlock from "@/client/blocks/bootstrap/Row";
 import Title1Block from "@/client/blocks/content/Title1";
-import FormProviderBlock from "@/client/blocks/form/Form";
 import RootBlock from "@/client/blocks/modules/Root";
 import RouterBlock from "@/client/components/RouteBlock";
 
@@ -31,11 +30,9 @@ export default async function ServerApp({ blocks }) {
                 </RowBlock>
                 <RowBlock>
                   <ColBlock>
-                    <FormProviderBlock>
-                      <Suspense fallback={'carregando'}>
-                        <FormBlockServer />
-                      </Suspense>
-                    </FormProviderBlock>
+                    <Suspense fallback={'carregando'}>
+                      <FormBlockServer />
+                    </Suspense>
                   </ColBlock>
                 </RowBlock>
               </>,
