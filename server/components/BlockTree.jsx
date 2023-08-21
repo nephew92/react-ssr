@@ -1,6 +1,5 @@
-import RouterBlock from "@/client/components/RouteBlock"
-
 import { BLOCKS } from "./Blocks"
+import StaticRouterBlock from "./StaticRouter"
 
 export default function BlockTree({ blocks }) {
   return <>
@@ -10,13 +9,8 @@ export default function BlockTree({ blocks }) {
       }
       const { component, children, props } = block
 
-      if (component === 'Routes') {
-        return <RouterBlock key={idx} {...props}>
-          {children.map(({ children, props: { path } }) => ({
-            path,
-            element: <BlockTree blocks={children} />,
-          }))}
-        </RouterBlock>
+      if (component === 'Router') {
+        return <StaticRouterBlock key={idx} blocks={children} />
       }
 
       const Component = BLOCKS[component]

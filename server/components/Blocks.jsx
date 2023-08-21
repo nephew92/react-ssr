@@ -17,6 +17,7 @@ import FormLabel from "@/client/blocks/form/Label"
 import FormLastName from "@/client/blocks/form/LastName"
 import FormState from "@/client/blocks/form/State"
 import Link from "@/client/blocks/router/Link";
+import Router, { OutletBLock as Outlet } from "@/client/components/Router";
 import Form from "@/modules/form/server";
 import Session from "@/modules/session/client";
 
@@ -42,4 +43,6 @@ export const BLOCKS = {
   FormAddress2,
   FormContinue,
   FormLabel,
+  Router,
+  Outlet,
 }
