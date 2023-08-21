@@ -7,8 +7,10 @@
     "client": "node webpack.config.js",
     "server": "node -r @babel/register --conditions=react-server server",
     "client:dev": "NODE_ENV=development yarn watch client -i server/",
+    "client:prod": "NODE_ENV=production yarn client",
     "server:dev": "NODE_ENV=development yarn watch server -i client/",
-    "client:dev:ctc": " THEMES=ctc yarn client:dev",
+    "server:prod": "NODE_ENV=production yarn server",
+    "client:dev:ctc": "THEMES=ctc yarn client:dev",
     "eslint": "npx eslint --fix",
     "watch": "nodemon -e js,jsx,json -i build/ -x yarn"
   },
