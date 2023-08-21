@@ -17,8 +17,8 @@ import FormLabel from "@/client/blocks/form/Label"
 import FormLastName from "@/client/blocks/form/LastName"
 import FormState from "@/client/blocks/form/State"
 import Link from "@/client/blocks/router/Link";
-import Form from "@/server/components/modules/Form"
-import Session from "@/server/components/modules/Session"
+import Form from "@/modules/form/server";
+import Session from "@/modules/session/client";
 
 export const BLOCKS = {
   Title1,

@@ -1,10 +1,7 @@
-import { readFileSync } from 'node:fs';
-
 import { renderToPipeableStream } from "react-dom/server";
 import { renderToPipeableStream as renderToPipeableStreamServer } from 'react-server-dom-webpack/server';
 
 import StaticHTML from '../components/HTML';
-import ServerApp from '../components/ServerApp';
 import { handler } from '../utils';
 
 export default {
@@ -16,19 +13,13 @@ export default {
   }),
 
   ssr: handler(async (req, res) => {
-    const { selectedId, isEditing, searchText } = req.body
+    const { module } = req.body
 
-    const manifest = readFileSync(require.resolve('@/build/themes/ctc/static/react-client-manifest.json'));
-    const moduleMap = JSON.parse(manifest);
+    const manifest = require('@/build/themes/ctc/static/react-client-manifest.json')
 
-    const props = { selectedId, isEditing, searchText }
+    const { default: Module } = require(`@/modules/${module}/server`)
 
-    const { blocks } = require('@/_mock/react-ssr-theme-ctc.blocks.json')
-
-    res.set('X-Location', JSON.stringify(props));
-    renderToPipeableStreamServer(<>
-      <ServerApp blocks={blocks} />
-    </>, moduleMap)
+    renderToPipeableStreamServer(<Module />, manifest)
       .pipe(res);
   }),
 }
