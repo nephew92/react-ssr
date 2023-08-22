@@ -3,6 +3,7 @@ import { renderToPipeableStream as renderToPipeableStreamServer } from 'react-se
 
 import StaticHTML from '../components/HTML';
 import { handler } from '../utils';
+import als from "../utils/als";
 
 export default {
   index: handler(async (req, res) => {
@@ -19,7 +20,10 @@ export default {
 
     const { default: Module } = require(`@/modules/${module}/server`)
 
-    renderToPipeableStreamServer(<Module />, manifest)
-      .pipe(res);
+    als.provider(store => {
+      store.set('request', req)
+      renderToPipeableStreamServer(<Module />, manifest)
+        .pipe(res);
+    })
   }),
 }
