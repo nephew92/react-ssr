@@ -16,6 +16,7 @@ settings:
         NODE_ENV: "development"
         production: false
 extends:
+  - next/core-web-vitals
   - eslint:recommended
   - plugin:react/recommended
   - plugin:import/recommended

@@ -1,11 +1,5 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "experimentalDecorators": true,
-    "target": "es6",
-    "allowSyntheticDefaultImports": false,
-    "baseUrl": "./",
-    "jsx": "react",
     "paths": {
       "@/*": ["./*"]
     }
