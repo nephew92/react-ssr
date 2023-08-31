@@ -1,6 +1,7 @@
-import FormBlockProvider from "@/client/blocks/modules/Form";
-import BlockTree from "@/server/components/BlockTree";
+import FormBlockProvider from "./client";
+
 import { formLoad } from "@/server/service/api/back";
+import BlockTree from "@/src/components/BlockTree";
 
 export default async function FormModule() {
   // feth form from allocation

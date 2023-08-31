@@ -6,7 +6,7 @@ import { createContext, useCallback, useContext, useMemo, useState } from "react
 
 import { merge } from "lodash";
 
-import { cmsApi } from "@/client/utils/httpclient";
+import { cmsApi } from "@/src/utils/httpclient";
 
 function hookBaseFactory(apiClient = cmsApi) {
   return () => {

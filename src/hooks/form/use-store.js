@@ -3,9 +3,9 @@
 import { useCallback, useMemo } from "react";
 import { useForm } from "react-hook-form";
 
-import { useSessionContext } from "@/client/blocks/modules/Session";
-
 import createStore from "../factory";
+
+import { useSessionContext } from "@/src/blocks/modules/Session/client";
 
 const { Provider, useStore } = createStore()
   .extend(({ fetch, loading }) => {

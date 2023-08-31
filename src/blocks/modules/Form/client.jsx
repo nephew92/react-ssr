@@ -5,7 +5,7 @@ import { Form } from "reactstrap";
 
 import * as classnames from "classnames";
 
-import { FormStoreProvider, useFormStore } from "@/client/hooks/form/use-store";
+import { FormStoreProvider, useFormStore } from "@/src/hooks/form/use-store";
 
 function FormBlock({ children, className, ...props }) {
   const { handleSubmit, context } = useFormStore()

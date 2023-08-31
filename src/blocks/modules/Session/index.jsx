@@ -1,4 +1,5 @@
-import SessionBlockProvider from "@/client/blocks/modules/Session"
+import SessionBlockProvider from "./client"
+
 import { formLoad } from "@/server/service/api/back"
 
 export default async function SessionModule({ children, ...props }) {

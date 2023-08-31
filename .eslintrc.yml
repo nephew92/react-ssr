@@ -1,35 +1,9 @@
-env:
-  amd: true
-  node: true
-  browser: true
-  es2021: true
-settings:
-  react:
-    version: detect
-    flowVersion: "0.53"
-  import/resolver:
-    node:
-      extensions: [.ts, .tsx, .native.js]
-    webpack:
-      config: "./webpack.config.js"
-      env:
-        NODE_ENV: "development"
-        production: false
 extends:
   - next/core-web-vitals
   - eslint:recommended
   - plugin:react/recommended
-  - plugin:import/recommended
   - plugin:react-hooks/recommended
   - google
-parser: "@babel/eslint-parser"
-parserOptions:
-  requireConfigFile: false
-  ecmaFeatures:
-    jsx: true
-  ecmaVersion: latest
-  sourceType: module
-plugins: [react-hooks, react, import]
 rules:
   space-before-function-paren: off
   operator-linebreak: [error, none]
